@@ -1,0 +1,33 @@
+//CREATING NEW USER 
+// Add this file additionality with simple setup of firebase.JSX
+
+
+import {getAuth , createUserWithEmailAndPassword } from "firebase/auth";
+
+const firebaseAuth = getAuth(firebaseApp);
+
+const signupUserWithEmailAndPassword = async (email,password) => {
+    createUserWithEmailAndPassword(firebaseAuth,email,password);
+}
+
+//signing new user 
+
+import {signInWithEmailAndPassword} from "firebase/auth";
+
+const signInUserWithEmailAndPassword = (email,password) => {
+  signInWithEmailAndPassword(firebaseAuth,email,password)
+}
+
+//GOOGLE 
+
+import {GoogleAuthProvider} from "firebase/auth";
+
+const googleProvider = new GoogleAuthProvider();
+import {signInWithPopup} from "firebase/auth";
+
+const signInWithGoogle = () => {
+  signInWithPopup(firebaseAuth,googleProvider)
+}
+
+
+//NOW TO MAKE A SAFE AUTHENTICATION GO TO FIREBASE AUTHENTICAL SETTING AND ADD = 127.0.0.1  DOMAIN TO SAFE THE GOOGLE OPENING 
