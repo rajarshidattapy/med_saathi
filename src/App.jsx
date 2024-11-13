@@ -6,15 +6,20 @@ import './App.css'
 // Pages
 import RegisterPage from './Pages/register.jsx'
 import LoginPage from "./Pages/LoginPage.jsx"
+import Home from "./Pages/Home.jsx"
 
+//Components
+import ColorSchemesExample from './Components/Navbar.jsx'
 
 function App() {
 
 
   return (
   <>
+  <ColorSchemesExample/>
   <Routes>
-  <Route path="/" element={<RegisterPage/>} />
+  <Route path="/" element={<Home/>} />
+  <Route path="/register" element={<RegisterPage/>} />
   <Route path="/login" element={<LoginPage/>} />
   </Routes>
   </>

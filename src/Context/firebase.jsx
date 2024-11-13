@@ -19,6 +19,8 @@ export const useFirebase = () => {
 const firebaseApp = initializeApp(firebaseConfig); //instance of firebase app and it got connected to firebe apP
 
 export const FirebaseProvider = (props) => {
+
+
     return (
     <firebaseContext.Provider value={{signUpUserWithEmailAndPassword,signInUserWithEmailAndPassword,signInWithGoogle}}>
     {props.children}
@@ -59,3 +61,6 @@ const signInWithGoogle = () => {
 
 
 //NOW TO MAKE A SAFE AUTHENTICATION GO TO FIREBASE AUTHENTICAL SETTING AND ADD = 127.0.0.1  DOMAIN TO SAFE THE GOOGLE OPENING 
+
+//To check whether user is logged in or not
+
