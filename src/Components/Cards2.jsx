@@ -9,7 +9,7 @@ function BasicExample(props) {
         <Card.Text>
      The Age is {props.age} and the address is {props.address}
         </Card.Text>
-        <Button variant="primary">More Details </Button>
+        <Button variant="primary" href= "/details">More Details </Button>
       </Card.Body>
     </Card>
   );
