@@ -28,8 +28,7 @@ function App() {
   <Route path="/patientData" element={<PatientImg/>} />
   <Route path="/patientForm" element={<PatientForm/>} />
   <Route path ="/dispensary" element={<Dispensary/>} />
-  <Route path ="/details" element = {<Details/>}/>
-
+  <Route path="/patient/view/:PatientId" element={<Details/>}/>
   </Routes>
   </>
   )

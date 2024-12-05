@@ -15,7 +15,6 @@ function Dispensary() {
             price={item.price}
             image={item.image}
             quantity={item.quantity}
-         
             />
         ))}
    

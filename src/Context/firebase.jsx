@@ -11,6 +11,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { addDoc } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { getDocs } from "firebase/firestore";
+import { getDoc } from "firebase/firestore";
+import { doc } from "firebase/firestore";
+
 
 
 const firebaseContext = createContext(null);
@@ -106,8 +109,14 @@ const signInWithGoogle = async () => {
     )
   }    
 
+  const getPatientById = async (id) => {
+    const docRef = doc(firestore, 'form', id);
+    const result = await getDoc(docRef);
+    return result;
+  }
+
     return (
-    <firebaseContext.Provider value={{signUpUserWithEmailAndPassword,signInUserWithEmailAndPassword,signInWithGoogle ,handleCreateNewPatient, AllPatient }}>
+    <firebaseContext.Provider value={{signUpUserWithEmailAndPassword,signInUserWithEmailAndPassword,signInWithGoogle ,handleCreateNewPatient, AllPatient ,getPatientById}}>
     {props.children}
 </firebaseContext.Provider>
     )

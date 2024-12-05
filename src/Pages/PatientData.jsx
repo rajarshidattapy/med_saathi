@@ -14,7 +14,7 @@ export default function PatientImg() {
     <div className="container mt -5  ">
         <CardGroup>
       {patientData.map(patientData => 
-        <BasicExample  {...patientData.data()}key={patientData.id}  />
+        <BasicExample  {...patientData.data()}key={patientData.id} id={patientData.id} />
       )}
       </CardGroup>
     </div>
