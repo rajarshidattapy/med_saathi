@@ -70,7 +70,8 @@ export const FirebaseProvider = (props) => {
 
 const signInWithGoogle = async () => {
     try{
-        const Goog = await signInWithPopup(firebaseAuth, googleProvider); // Correct: use lowercase googleProvider
+        const Goog = await signInWithPopup(firebaseAuth, googleProvider);
+        setUser(Goog.user);
         return Goog;
     }catch(err){
         return err;
@@ -78,21 +79,19 @@ const signInWithGoogle = async () => {
   }
 
 
-    console.log(user);
   
-    const handleCreateNewPatient = async (name, age, address) => {
+    const handleCreateNewPatient = async (name, age, address,photoUrl) => {
       try {
           if (!user) throw new Error('User must be logged in to create a listing');
                     const docRef = await addDoc(collection(firestore, 'form'), {
               name,
               age,
               address,
+              photoUrl,
               userId: user.uid,
               userEmail: user.email,
               displayName: user.displayName,
-              createdAt: new Date().toISOString()
-          
-              // createdAt: new Date().toISOString()
+              createdAt: new Date().toISOString()          
           });
           
           return { id: docRef.id, success: true };
@@ -116,7 +115,7 @@ const signInWithGoogle = async () => {
   }
 
     return (
-    <firebaseContext.Provider value={{signUpUserWithEmailAndPassword,signInUserWithEmailAndPassword,signInWithGoogle ,handleCreateNewPatient, AllPatient ,getPatientById}}>
+    <firebaseContext.Provider value={{user,signUpUserWithEmailAndPassword,signInUserWithEmailAndPassword,signInWithGoogle ,handleCreateNewPatient, AllPatient ,getPatientById}}>
     {props.children}
 </firebaseContext.Provider>
     )
