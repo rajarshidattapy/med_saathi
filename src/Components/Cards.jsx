@@ -16,7 +16,7 @@ function ImageCards() {
   
           <Card.Img 
             variant="top" 
-            src={`../public/${item.image}`} 
+            src="https://i.pinimg.com/736x/cc/cf/f8/cccff88d04c72a8e1724e03814d7567a.jpg"
             style={{ width: '100%', height: '200px', objectFit: 'cover' }} 
           />
           <Card.Body>
