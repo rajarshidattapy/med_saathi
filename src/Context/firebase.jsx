@@ -69,13 +69,13 @@ export const FirebaseProvider = (props) => {
 }
 
 const signInWithGoogle = async () => {
-  try{
-      const Goog = await signInWithPopup(firebaseAuth,GoogleProvider);
-      return Goog;
-  }catch(err){
-      return err;
+    try{
+        const Goog = await signInWithPopup(firebaseAuth, googleProvider); // Correct: use lowercase googleProvider
+        return Goog;
+    }catch(err){
+        return err;
+    }
   }
-}
 
 
     console.log(user);

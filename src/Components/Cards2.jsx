@@ -1,28 +1,53 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Row, Col, Card, Badge } from 'react-bootstrap';
+import { FaUserMd, FaMapMarkerAlt, FaBirthdayCake } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
-
-
-function BasicExample(props) {
-
+function PatientCardGrid({ patients }) {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate('/details', { state: { id: props.id } });
-  }
-
   return (
-    <Card style={{ width: '18rem' , margin:"5px"}}>
-      <Card.Body>
-        <Card.Title>{props.name}</Card.Title>
-        <Card.Text>
-     The Age is {props.age} and the address is {props.address}
-        </Card.Text>
-        <Button variant="primary" onClick={e => navigate(`/patient/view/${props.id}`)}>More Details</Button>      </Card.Body>
-    </Card>
+    <Row xs={1} md={3} className="g-4 p-4">
+      {patients.map((patient) => (
+        <Col key={patient.id}>
+          <Card 
+            className="h-100 shadow-sm hover-lift" 
+            style={{ 
+              transition: 'transform 0.3s ease',
+              borderLeft: '4px solid #007bff'
+            }}
+          >
+            <Card.Body>
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <h5 className="m-0 text-primary">
+                  <FaUserMd className="me-2" />
+                  {patient.name}
+                </h5>
+                <Badge bg="secondary">Patient ID: {parseInt(patient.id)}</Badge>
+              </div>
+              
+              <div className="mb-2">
+                <FaBirthdayCake className="me-2 text-muted" />
+                <span>Age: {patient.age} years</span>
+              </div>
+              
+              <div className="mb-3">
+                <FaMapMarkerAlt className="me-2 text-muted" />
+                <span>{patient.address}</span>
+              </div>
+              
+              <button 
+                className="btn btn-outline-primary w-100"
+                onClick={() => navigate(`/patient/view/${patient.id}`)}
+              >
+                View Details
+              </button>
+            </Card.Body>
+          </Card>
+        </Col>
+      ))}
+    </Row>
   );
 }
 
-export default BasicExample;
+export default PatientCardGrid;

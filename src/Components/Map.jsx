@@ -1,11 +1,10 @@
 import React from "react";
 
-export const Maps = () => {
+export const Maps = ({address}) => {
     return (
         <>
         <address className="map-text">
-            2236, 12th Main Rd <br />
-            Kumarswamy layout , 560078 <br />
+          {address} <br />
         </address>
 
     

@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useFirebase } from "../Context/firebase";
-import BasicExample from "../Components/Cards2";
-import CardGroup from 'react-bootstrap/CardGroup';
-export default function PatientImg() {
+import PatientCardGrid from "../Components/Cards2"; 
+import { Container } from 'react-bootstrap';
+
+export default function PatientList() {
   const [patientData, setPatientData] = useState([]); 
   const firebase = useFirebase();
 
   useEffect(() => {  
-    firebase.AllPatient().then((patientData) => setPatientData(patientData.docs)); 
+    firebase.AllPatient()
+      .then((patients) => {
+        const patientList = patients.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setPatientData(patientList);
+      })
+      .catch((error) => console.error("Error fetching patients:", error)); 
   }, []);
 
   return (
-    <div className="container mt -5  ">
-        <CardGroup>
-      {patientData.map(patientData => 
-        <BasicExample  {...patientData.data()}key={patientData.id} id={patientData.id} />
-      )}
-      </CardGroup>
-    </div>
+    <Container fluid>
+      <PatientCardGrid patients={patientData} />
+    </Container>
   );
 }

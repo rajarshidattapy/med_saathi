@@ -39,7 +39,7 @@ function Details() {
             <div><b>Age: </b> {patientDetails.age} years</div>
             <div><b>Address: </b> {patientDetails.address}</div>
             <div className="symptoms-container">
-              <h3 className="header">Patient Symptoms</h3>
+              {/* <h3 className="header">Patient Symptoms</h3>
               <ul>
                 <li>Fever</li>
                 <li>Headache</li>
@@ -48,7 +48,7 @@ function Details() {
                 <li>Fatigue</li>
                 <li>Muscle aches</li>
                 <li>Nausea</li>
-              </ul>
+              </ul> */}
             </div>
             <div className="approve">
               <h4>Consult ??</h4>
@@ -57,7 +57,7 @@ function Details() {
             <input type="submit" placeholder="start conversation" className="conversation" />
           </div>
         </div>
-        <Maps />
+        <Maps  address = {patientDetails.address}/>
       </div>
     </>
   )

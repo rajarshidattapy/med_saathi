@@ -15,6 +15,11 @@ const ListingPage = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         await firebase.handleCreateNewPatient(name, age, address);
+    
+        setName('');
+        setAge('');
+        setAddress('');
+      
     };
 
     return (
