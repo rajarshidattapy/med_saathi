@@ -33,7 +33,9 @@ function Details() {
       <div className="detail">
         <h1 className="patient">Patient Details</h1>
         <div className="wrap">
-          <img src="https://pictographic.azureedge.net/thumbnails/lined/I1A9iqwlWBf7JNvBcT8a.png" alt="person" />
+        <img src="https://pictographic.azureedge.net/thumbnails/lined/I1A9iqwlWBf7JNvBcT8a.png" alt="person" />
+
+          <img src={patientDetails.photoUrl} alt="" className="avatar" />
           <div className="innerWrap">
             <div><b>Name: </b> {patientDetails.name}</div>
             <div><b>Age: </b> {patientDetails.age} years</div>
