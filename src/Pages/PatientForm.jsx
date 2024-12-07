@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { useFirebase } from "../Context/firebase";
 import { useNavigate } from "react-router-dom";
 import supabase from "../Context/supabase";
+import { Container, Spinner } from "react-bootstrap";
 
 const ListingPage = () => {
     const { user, handleCreateNewPatient } = useFirebase();
@@ -13,8 +14,11 @@ const ListingPage = () => {
     const [age, setAge] = useState('');
     const [address, setAddress] = useState('');
     const [photo, setPhoto] = useState(null);
+    const [doctorType, setDoctorType] = useState(''); 
+    const [loading, setLoading] = useState(false);  
 
     const handleSubmit = async (e) => {
+        setLoading(true);
         e.preventDefault();
         
         let photoUrl = null;
@@ -42,17 +46,39 @@ const ListingPage = () => {
             photoUrl = res.data.signedUrl;
         }
         
-        await handleCreateNewPatient(name, age, address, photoUrl);
+        await handleCreateNewPatient(name, age, address, photoUrl, doctorType);
 
-        // Clear the form fields after submission
         setName('');
         setAge('');
         setAddress('');
-        setPhoto(null); 
+        setPhoto(null);
+        setDoctorType('');
+        setLoading(false)  // Reset doctor type
     };
-
+    if (loading) {
+        return (
+          <Container fluid className="d-flex justify-content-center align-items-center" style={{ minHeight: "80vh" }}>
+            <Spinner animation="border" variant="primary" />
+          </Container>
+        );
+      }
+    
     if (!user) {
-        return (<div className="container mt-5"><a href="/login">Login To Fill Form</a> </div>);
+        return (
+            <div className="container d-flex justify-content-center align-items-center mt-5" style={{ minHeight: '80vh', backgroundColor: '#f7f7f7', borderRadius: '8px', padding: '30px' }}>
+                <div className="text-center">
+                    <h3>You need to log in to fill out the form</h3>
+                    <Button 
+                        variant="primary" 
+                        size="lg" 
+                        onClick={() => navigate("/login")}
+                        style={{ marginTop: '20px' }}
+                    >
+                        Login To Fill Form
+                    </Button>
+                </div>
+            </div>
+        );
     } else {
         return (
             <div className="container mt-5">
@@ -87,7 +113,23 @@ const ListingPage = () => {
                         />
                     </Form.Group>
 
-                   
+                    <Form.Group className="mb-3" controlId="formBasicDoctor">
+                        <Form.Label>Doctor Type</Form.Label>
+                        <Form.Select
+                            value={doctorType}
+                            onChange={(e) => setDoctorType(e.target.value)}
+                            aria-label="Select Doctor Type"
+                        >
+                            <option value="">Select a Doctor</option>
+                            <option value="Neuro">Neuro</option>
+                            <option value="Dermato">Dermato</option>
+                            <option value="Cardio">Cardio</option>
+                            <option value="Orthopedics">Orthopedics</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="ENT">ENT</option>
+                        </Form.Select>
+                    </Form.Group>
+
                     <Form.Group className="mb-3" controlId="formBasicFile">
                         <Form.Label>Upload Your Photo</Form.Label>
                         <Form.Control
