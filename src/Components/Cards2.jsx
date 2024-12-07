@@ -17,6 +17,15 @@ function PatientCardGrid({ patients }) {
               borderLeft: '4px solid #007bff'
             }}
           >
+            {patient.photoUrl?
+             <Card.Img 
+                variant="top" 
+                src={patient.photoUrl}
+                alt="User Image"
+                className="card-img-top"
+                style={{ height: '150px', objectFit: 'cover' }} 
+              />:null}
+           
             <Card.Body>
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <h5 className="m-0 text-primary">

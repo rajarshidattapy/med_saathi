@@ -15,9 +15,7 @@ function Details() {
   const [patientDetails, setPatientDetails] = useState(null);
 
   useEffect(() => {
-    console.log('Patient ID:', params.PatientId);
     firebase.getPatientById(params.PatientId).then((patient) => {
-      console.log('Patient Data:', patient.data());
       setPatientDetails(patient.data());
     }).catch(error => {
       console.error('Error fetching patient:', error);
@@ -33,9 +31,8 @@ function Details() {
       <div className="detail">
         <h1 className="patient">Patient Details</h1>
         <div className="wrap">
-        <img src="https://pictographic.azureedge.net/thumbnails/lined/I1A9iqwlWBf7JNvBcT8a.png" alt="person" />
 
-          <img src={patientDetails.photoUrl} alt="" className="avatar" />
+          <img src={patientDetails.photoUrl||"https://pictographic.azureedge.net/thumbnails/lined/I1A9iqwlWBf7JNvBcT8a.png" } alt="" style={{height:'200px'}}/>
           <div className="innerWrap">
             <div><b>Name: </b> {patientDetails.name}</div>
             <div><b>Age: </b> {patientDetails.age} years</div>

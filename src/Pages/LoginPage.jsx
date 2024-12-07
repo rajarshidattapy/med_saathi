@@ -3,10 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useFirebase } from "../Context/firebase";
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const firebase = useFirebase();
-
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [selectedRole, setSelectedRole] = useState(null); 
@@ -88,7 +89,9 @@ const LoginPage = () => {
             LOGIN as {selectedRole}
           </Button>
           <h1 className="mt-5 mb-5">Or</h1>
-          <Button onClick={firebase.signInWithGoogle} variant="danger">
+          <Button onClick={()=>{firebase.signInWithGoogle().then((v)=>{
+            navigate('/');
+          })}} variant="danger">
             Sign in with Google
           </Button>
         </Form>
