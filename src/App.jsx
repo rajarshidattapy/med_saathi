@@ -11,6 +11,7 @@ import PatientImg from "./Pages/PatientData.jsx"
 import PatientForm from "./Pages/PatientForm.jsx"
 import Dispensary from "./Pages/Dispensary.jsx"
 import Details from "./Pages/Details.jsx"
+import Ankit from "./Pages/Ankit.jsx"
 
 //Components
 import ColorSchemesExample from './Components/Navbar.jsx'
@@ -30,6 +31,7 @@ function App() {
   <Route path="/patientForm" element={<PatientForm/>} />
   <Route path ="/dispensary" element={<Dispensary/>} />
   <Route path="/patient/view/:PatientId" element={<Details/>}/>
+  <Route path = "PatientUI" element={<Ankit/>}/>
   
   </Routes>
   </>

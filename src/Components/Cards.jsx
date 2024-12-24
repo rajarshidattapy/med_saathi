@@ -22,16 +22,12 @@ function ImageCards() {
           <Card.Body>
             <Card.Title>Card Title {item.id}</Card.Title>
             <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+             
             </Card.Text>
             
             <Button variant="primary" href= "/patientData" >Check Details</Button>
           
           </Card.Body>
-
-
-          
         </Card>
       ))}
     </div>
