@@ -3,9 +3,7 @@ import React from "react";
 export const Maps = ({address}) => {
     return (
         <>
-        <address className="map-text">
-          {address} <br />
-        </address>
+      
 
     
         <div className="responsive-map">
