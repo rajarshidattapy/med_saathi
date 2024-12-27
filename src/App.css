@@ -214,7 +214,8 @@ padding-right: 50px;
    .rectangle {
     width: 650px;
     height: calc(100vh - 160px); /* Full viewport height minus 100px */
-    background-color: #B2EC5D;
+    /* background-color: #B2EC5D; */
+    background-color:#B2EC5D;
     margin-bottom: 70px; 
     margin-left: 30px;/* Center horizontally with some margin on top and bottom */
     border-radius: 40px;
@@ -235,7 +236,7 @@ padding-right: 50px;
 
   .inner_text{
     margin-top: 45px;
-    color: black;
+    color: white;
     font-size: 20px;
     line-height: 1.9; 
   }
@@ -303,4 +304,135 @@ padding-right: 50px;
   border-radius: 5px; /* Rounded corners */
  }
 
+ .hospital{
+  margin: 50px;
+ }
+ .hospital-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(345px, 1fr));
+  gap: 4rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .hospital-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.hospital-card {
+  display: flex;
+  justify-content: center;
+}
+
+.more{
+margin-right: 50px;
+}
+
+.details{
+  margin: 20px 20px 20px 20px;
+ display: flex;
+ gap: 4rem;
+ border: black 3px solid;
+ padding: 2rem;
+}
+
+.ddetailsh{
+  text-align: center;
+}
+
+ 
+
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Forces exactly 3 columns */
+  gap: 2rem;
+  padding: 1rem;
+  max-width: 1400px; /* Increased to accommodate 3 cards comfortably */
+  margin: 0 auto;
+}
+
+
+@media (min-width: 1200px) {
+  .doctor-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ddetails {
+  background-color: #f5f5f5;
+  border: 3px solid black;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100%; /* Ensures the card takes full width of its grid cell */
+}
+
+.doctor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.dimage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+  margin-bottom: 1rem;
+}
+
+.dimage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.dblack {
+  color: black;
+  width: 100%;
+}
+
+.dcards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.dcards div {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 1200px) {
+  .doctor-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .doctor-grid {
+    grid-template-columns: 1fr; /* 1 card per row on small screens */
+  }
+}
+
+.btn {
+  background-color: #21897E; /* Set the button background color */
+  color: white;             /* Set the text color to white for contrast */
+  border: none;             /* Remove any default border */
+  padding: 10px 20px;       /* Add padding for a better look */
+  border-radius: 5px;       /* Optional: Slightly round the corners */
+  cursor: pointer;          /* Change cursor to pointer on hover */
+  font-size: 16px;          /* Set font size */
+}
+
+.btn:hover {
+  background-color: #1a6f65; /* Optional: Darker shade for hover effect */
+}
 

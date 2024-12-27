@@ -1,28 +1,29 @@
 import React from 'react'
-
+import { useNavigate } from "react-router-dom";
 import Maps from '@/Components/Map'
 
 function Ankit() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/PatientUI/Hospital");
+  };
+
   return (
     <>
       <div className="patient_ui">
         <div>
-        <div className='rectangle'>
-          {/* Inner Rectangle */}
-          <div className='inner_rectangle'>
+          <div className='rectangle'>
+            <div className='inner_rectangle'></div>
+            <div className='inner_text'>
+              <div className="name"><b>Name:</b> Ankit</div>
+              <div className="age"><b>Age:</b> 20</div>
+              <div className="address"><b>Address:</b> Bangalore</div>
+              <div className="gender"><b>Gender:</b> Male</div>
+              <div className="contact"><b>Contact:</b> 987654321</div>
+            </div>
           </div>
-
-          {/* Inner text */}
-          <div className='inner_text'>
-            <div className="name"><b>Name:</b> Ankit</div>
-            <div className="age"><b>Age:</b> 20</div>
-            <div className="address"><b>Address:</b> Bangalore</div>
-            <div className="gender"><b>Gender:</b> Male</div>
-            <div className="contact"><b>Contact:</b> 987654321</div>
-          </div>
-          
-        </div>
-        <div className="map-container" style={{ marginTop: '20px', width: '90%', position: 'absolute', bottom: '20px' }}>
+          <div className="map-container" style={{ marginTop: '20px', width: '90%', position: 'absolute', bottom: '20px' }}>
             <Maps />
           </div>
         </div>
@@ -51,15 +52,21 @@ function Ankit() {
           </div>
 
           <div className="search">
-            <div><b>Search Nearby Hospital</b></div>
-            <br/>
-            <button className="search_button" 
-            >Search</button>
-          </div>
+            
+  <div><b>Search Nearby Hospital</b></div>
+  <br/>
+  <button 
+    className="search_button" 
+    onClick={handleClick} 
+    style={{cursor: 'pointer'}}
+  > 
+    Search 
+  </button>
+</div>
         </div>
       </div>
     </>
   )
 }
 
-export default Ankit
+export default Ankit;

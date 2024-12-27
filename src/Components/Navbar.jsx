@@ -9,7 +9,8 @@ function ColorSchemesExample() {
     <>
      <Navbar
   style={{
-    backgroundColor: "#B2EC5D",
+    // backgroundColor: "#B2EC5D",
+    backgroundColor:"black",
     border: "3px solid black", // Add black solid border
     borderRadius: "3px", // Set border radius to 3px
   }}
@@ -20,7 +21,7 @@ function ColorSchemesExample() {
     <Navbar.Brand
       href="/"
       style={{
-        color: "black",
+        color: "white",
         fontWeight: "bold",
       }}
     >
@@ -30,7 +31,7 @@ function ColorSchemesExample() {
       <Nav.Link
         href="/"
         style={{
-          color: "black",
+          color: "white",
         }}
       >
         Home
@@ -38,7 +39,7 @@ function ColorSchemesExample() {
       <Nav.Link
         href="patientForm"
         style={{
-          color: "black",
+          color: "white",
         }}
       >
         Patient Form
@@ -46,7 +47,7 @@ function ColorSchemesExample() {
       <Nav.Link
         href="dispensary"
         style={{
-          color: "black",
+          color: "white",
         }}
       >
         Dispensary
@@ -56,7 +57,7 @@ function ColorSchemesExample() {
           <Nav.Link
             href="login"
             style={{
-              color: "black",
+              color: "white",
            
             }}
           >
@@ -65,7 +66,7 @@ function ColorSchemesExample() {
           <Nav.Link
             href="register"
             style={{
-              color: "black",
+              color: "white",
               
             }}
           >
@@ -74,7 +75,7 @@ function ColorSchemesExample() {
           <Nav.Link
             href="PatientUI"
             style={{
-              color: "black",
+              color: "white",
             }}
           >
             Patient UI
@@ -83,7 +84,7 @@ function ColorSchemesExample() {
       ) : (
         <button
           style={{
-            color: "black",
+            color: "white",
             fontWeight: "bold",
             backgroundColor: "transparent",
             border: "none",
